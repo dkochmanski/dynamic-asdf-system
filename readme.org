@@ -1,0 +1,36 @@
+
+* asdf hacks
+
+System "asdf-hacks" adds a dynamic dispatch bits for system
+dependencies and component names. Classes ~dynamic-system~ for the
+system and ~dynamic-source~ for the file are created to present the
+mechanism.
+
+When system dependency is a string and it starts with "xxx-" then
+dependency is replaced to either "host-" or "native-" dependent on
+*whoosh* variable. Of course we could simply replace "xxx-" with
+*whoosh* value to have more fexible behavior.
+
+When source file is named "heroes" then it is replaced with either
+"might" or "magic".
+
+* dsys
+
+System "dsys" shows how to use asdf-hacks. Notice, that we've put
+there eval-when to load ~asdf-hacks~ beforehand what clearly shows
+that ~defsystem-depends-on~ usefullness is very limited - asdf doesn't
+have its own reader so it can't load the system definition if it has a
+package reference which is not defined (in our case
+~asdf-hacks:dynamic-system~).
+
+Important options to defsystem are ~:class~ and
+~:default-component-class~. System depends on "xxx-cl" and has a file
+"heroes", what means, that if *whoosh* is T, then system depends on
+"host-cl" and "might" while when *whoosh* is NIL then system depends
+on "native-cl" and "magic". File "normal" is loaded normally :).
+
+* notes
+
+Notice, that changing *whoosh* after loading "dsys" and loading "dsys"
+again will work poorly and is a bad idea, because then you will have a
+mashup of both system files in a single image.
