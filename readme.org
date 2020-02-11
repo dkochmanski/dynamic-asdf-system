@@ -8,8 +8,8 @@ mechanism.
 
 When system dependency is a string and it starts with "xxx-" then
 dependency is replaced to either "host-" or "native-" dependent on
-*whoosh* variable. Of course we could simply replace "xxx-" with
-*whoosh* value to have more fexible behavior.
+`*whoosh*` variable. Of course we could simply replace "xxx-" with
+`*whoosh*` value to have more fexible behavior.
 
 When source file is named "heroes" then it is replaced with either
 "might" or "magic".
