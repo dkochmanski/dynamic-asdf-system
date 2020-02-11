@@ -8,8 +8,8 @@ mechanism.
 
 When system dependency is a string and it starts with "xxx-" then
 dependency is replaced to either "host-" or "native-" dependent on
-`*whoosh*` variable. Of course we could simply replace "xxx-" with
-`*whoosh*` value to have more fexible behavior.
+~*whoosh*~ variable. Of course we could simply replace "xxx-" with
+~*whoosh*~ value to have more fexible behavior.
 
 When source file is named "heroes" then it is replaced with either
 "might" or "magic".
@@ -25,12 +25,12 @@ package reference which is not defined (in our case
 
 Important options to defsystem are ~:class~ and
 ~:default-component-class~. System depends on "xxx-cl" and has a file
-"heroes", what means, that if *whoosh* is T, then system depends on
-"host-cl" and "might" while when *whoosh* is NIL then system depends
+"heroes", what means, that if ~*whoosh*~ is T, then system depends on
+"host-cl" and "might" while when ~*whoosh*~ is NIL then system depends
 on "native-cl" and "magic". File "normal" is loaded normally :).
 
 * notes
 
-Notice, that changing *whoosh* after loading "dsys" and loading "dsys"
+Notice, that changing ~*whoosh*~ after loading "dsys" and loading "dsys"
 again will work poorly and is a bad idea, because then you will have a
 mashup of both system files in a single image.
